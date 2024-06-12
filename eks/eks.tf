@@ -1,3 +1,6 @@
+module "vpc" {
+  source  = "../vpc"
+}
 module "eks" {
   source          = "terraform-aws-modules/eks/aws"
   version         = "~> 20.8.4"
@@ -27,6 +30,7 @@ module "eks" {
     }
   }
 }
+  depends_on = [module.vpc]
 }
 module "vpc_cni_irsa_role" {
   source    = "terraform-aws-modules/iam/aws//modules/iam-role-for-service-accounts-eks"

@@ -13,7 +13,7 @@ resource "aws_ecr_repository" "watchdogit-eks-repo" {
 resource "aws_iam_policy" "watchdogit_repo_policy" {
   name = "watchdogit_repo_policy"
   policy = jsonencode({
-      Version = "2008-10-17",
+      Version = "2012-10-17",
       Statement = [
         {
             "Effect": "Allow",
